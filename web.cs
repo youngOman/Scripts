@@ -16,7 +16,7 @@ public class web : MonoBehaviour {
         {
             Debug.Log(www.error);
             if (result != null)
-                result(www.error);123
+                result(www.error);
         }
         else
         {
