@@ -7,7 +7,7 @@ using UnityEngine.Networking; // WebRequest需要
 using UnityEngine.SceneManagement;
 public class Registration : MonoBehaviour
 {
-    public string url="http://localhost/UnitySqlconnect/register.php";
+    public string url="https://nas.butyshop.com/htdocs/UnitySqlconnect/register.php";
     public InputField InputplayerID;
     public InputField InputPasswd;
     public InputField InputPlayerName;

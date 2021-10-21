@@ -6,8 +6,8 @@ using UnityEngine.UI;
 using UnityEngine.Networking; // WebRequest需要 
 using UnityEngine.SceneManagement;
 public class Login : MonoBehaviour
-{
-    public string url="http://localhost/UnitySqlconnect/login.php";
+{   
+    public string url="https://nas.butyshop.com/htdocs/UnitySqlconnect/login.php";
     public InputField InputplayerID;
     public InputField InputPasswd;
     public Button loginbtn;

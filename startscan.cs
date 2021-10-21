@@ -17,6 +17,6 @@ public class startscan : MonoBehaviour
         
     }
     public void ssfunction(){
-    	SceneManager.LoadScene("startfishing");
+    	SceneManager.LoadScene("scanScene");
     }
 }
