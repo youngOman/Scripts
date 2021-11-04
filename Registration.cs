@@ -27,8 +27,8 @@ public class Registration : MonoBehaviour
         form.AddField("InputPlayerName",InputPlayerName.text);
         using (UnityWebRequest www = UnityWebRequest.Post(url, form))
         {
+            www.downloadHandler=new DownloadHandlerBuffer();
             yield return www.SendWebRequest();
-
             if (www.isNetworkError || www.isHttpError)
             {
                 Debug.Log(www.error);
@@ -36,7 +36,12 @@ public class Registration : MonoBehaviour
             else
             {
                 Debug.Log("連線成功");
-                SceneManager.LoadScene("login");
+                string responseText=www.downloadHandler.text;
+                if(responseText=="success"){
+                    SceneManager.LoadScene("login");
+                }else{
+                    Warningtext.text=responseText;
+                }           
             }
         }
     }

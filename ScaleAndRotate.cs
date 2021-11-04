@@ -20,11 +20,9 @@ public class ScaleAndRotate : MonoBehaviour
 			transform.Rotate(Vector3.down  * deltaPos.x , Space.World); 
 			transform.Rotate(Vector3.right * deltaPos.y , Space.World);
 		}
-
 		//多點觸控, 放大縮小
 		Touch newTouch1 = Input.GetTouch (0);
 		Touch newTouch2 = Input.GetTouch (1);
-		
 		//第2點剛開始接觸螢幕, 只記錄，不做處理
 		if( newTouch2.phase == TouchPhase.Began ){
 			oldTouch2 = newTouch2;
@@ -48,7 +46,6 @@ public class ScaleAndRotate : MonoBehaviour
 		if (scale.x > 0.3f && scale.y > 0.3f && scale.z > 0.3f) {
 			transform.localScale = scale;
 		}
-
 		//記住最新的觸控點，下次使用
 		oldTouch1 = newTouch1;
 		oldTouch2 = newTouch2;
