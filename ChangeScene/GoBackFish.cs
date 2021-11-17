@@ -10,7 +10,7 @@ public class GoBackFish : MonoBehaviour
         
     }
     // Update is called once per frame
-     public void LoadtoRegister(){
+     public void LoadtoFishing(){
       SceneManager.LoadScene("startfishing");
     }
 }

@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.Events;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
-public class ShakeCheck2 : SetActiveouo
+public class ShakeCheck : SetActiveouo
 {
     [HideInInspector] public float strength=5.0f;
     public Animator FishingRodControl;
@@ -14,10 +14,10 @@ public class ShakeCheck2 : SetActiveouo
     }
     void Update()
     {
-        if(Input.acceleration.y > 2.0f){
+        if(Input.acceleration.y > 2.0f){ 
             FishingRodControl.SetBool("startshake",true);
             Invoke("showfish",4.0f);
-            Invoke("changeScene",5.0f);
+            Invoke("changeScene",7.0f);
             // Debug.Log("shaked");
 	    }else{
             Debug.Log("Nothing happen");

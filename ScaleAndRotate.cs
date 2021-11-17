@@ -14,7 +14,7 @@ public class ScaleAndRotate : MonoBehaviour
 			return;
 		}
 		//單點觸控， 水平上下旋轉
-		if(  Input.touchCount > 0){ //1 == Input.touchCount
+		if(Input.touchCount > 0){ //1 == Input.touchCount
 			Touch touch = Input.GetTouch (0);
 			Vector2 deltaPos = touch.deltaPosition;			
 			transform.Rotate(Vector3.down  * deltaPos.x , Space.World); 

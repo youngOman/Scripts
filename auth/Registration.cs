@@ -7,7 +7,7 @@ using UnityEngine.Networking; // WebRequest需要
 using UnityEngine.SceneManagement;
 public class Registration : MonoBehaviour
 {
-    public string url="https://nas.butyshop.com/htdocs/UnitySqlconnect/register.php";
+    public string url="https://ubt.butyshop.com/htdocs/UnitySqlconnect/register.php";
     public InputField InputplayerID;
     public InputField InputPasswd;
     public InputField InputPlayerName;
@@ -17,7 +17,6 @@ public class Registration : MonoBehaviour
         Debug.Log("Runnnn");
         StartCoroutine(Register());
         // StartCoroutine(Register("Test","123456","123"));
-
     }   
     IEnumerator Register()
     {
@@ -37,7 +36,7 @@ public class Registration : MonoBehaviour
             {
                 Debug.Log("連線成功");
                 string responseText=www.downloadHandler.text;
-                if(responseText=="success"){
+                if(responseText=="1"){
                     SceneManager.LoadScene("login");
                 }else{
                     Warningtext.text=responseText;

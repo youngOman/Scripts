@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.Events;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
-public class ShakeCheck : SetActiveouo
+public class ShakeCheck2 : SetActiveouo
 {
     [HideInInspector] public float strength=5.0f;
     public Animator FishingRodControl;
@@ -13,21 +13,21 @@ public class ShakeCheck : SetActiveouo
         FishingRodControl=GetComponent<Animator>();
         StartCoroutine(wait_change());
     }
-    public IEnumerator wait_change(){
-        if(Input.acceleration.y > 2.0f){
+    IEnumerator wait_change(){
+        if(Input.GetKey(KeyCode.RightArrow)){
             FishingRodControl.SetBool("startshake",true);
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(3f);
             view_text.SetActive(true);
             fish.SetActive(true);
             retrybtn.SetActive(true);
-            yield return new WaitForSeconds(2); 
+            yield return new WaitForSeconds(2f); 
             SceneManager.LoadScene("Congrat");
             // Debug.Log("shaked");
 	    }else{
             Debug.Log("Nothing happen");
         }
         // 測試用
-        if(Input.GetKey(KeyCode.RightArrow)){
+        if(Input.acceleration.y > 2.0f){  
             FishingRodControl.SetBool("startshake",true);     
         }
     }
