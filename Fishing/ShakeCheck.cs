@@ -10,7 +10,7 @@ public class ShakeCheck : MonoBehaviour
     [HideInInspector] public float strength=5.0f;
     [Header("Others")]
     public Animator FishingRodControl;
-    public Text view_text;
+    // public Text view_text;
     public GameObject ImageTarget;  
     private int nowcurrent_FishID;
     private int totalFish; // 目前總魚數
@@ -26,8 +26,8 @@ public class ShakeCheck : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.RightArrow)){
             FishingRodControl.SetBool("startshake",true);
-            Invoke("showfish",3.0f);
-            Invoke("changeScene",6.0f);
+            Invoke("showfish",1.0f);
+            Invoke("changeScene",2.0f);
             // Debug.Log("shaked");
 	    }else{
             // Debug.Log("Nothing happen");
@@ -39,13 +39,14 @@ public class ShakeCheck : MonoBehaviour
     }
     public void showfish(){
         nowcurrent_FishID=Random.Range(0, AllFishManager.Fishobjects.Length); //Fishobjects是AllFish的陣列
+        Debug.Log(nowcurrent_FishID);
         ObjCount=0;
         while(ObjCount<AllFishManager.Fishobjects.Length){
-            AllFishManager.Fishobjects[ObjCount].SetActive(false);
+            AllFishManager.Fishobjects[ObjCount].SetActive(false); //先把全部物件設成false
             ObjCount+=1;
         }
-        // Instantiate(AllFishManager.Fishobjects[nowcurrent_FishID]).SetActive(true);
         AllFishManager.Fishobjects[nowcurrent_FishID].SetActive(true);
+        // Instantiate(AllFishManager.Fishobjects[nowcurrent_FishID]);
         StoreFishData.instanceDataFish.numCurrentID=nowcurrent_FishID; //將目前隨機出現的魚的ID傳給StoreFishData
         // Debug.Log("這隻魚的ID="+nowcurrent_FishID);
        

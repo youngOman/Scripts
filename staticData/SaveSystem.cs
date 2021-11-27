@@ -3,7 +3,7 @@ using System.IO; //使用FileStream前Import Access File
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary; //將物件序列化和還原序列化為二進位格式。
 using UnityEngine.SceneManagement;
-//Does not saving
+//圖鑑存檔
 public class SaveSystem : MonoBehaviour
 {
     public static List<Fish> fishes=new List<Fish>(); //static能在任何地方存取

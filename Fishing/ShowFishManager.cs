@@ -9,7 +9,7 @@ public class ShowFishManager : MonoBehaviour
     void Start(){
         //得從startFishing獲得FishID後再傳至static變數再傳至TempID;
         int TempID=StoreFishData.instanceDataFish.numCurrentID;
-        Instantiate(objFishes[TempID]);
+        // Instantiate(objFishes[TempID],SpawnPlace);
         objFishes[TempID].SetActive(true);
     }
 }
