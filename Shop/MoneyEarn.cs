@@ -1,18 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class MoneyEarn : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void EarnMoney(){
+        GameObject.FindGameObjectWithTag("ShopManager").GetComponent<ShopManager>().Earn_Money(); //Collect Coins
     }
 }

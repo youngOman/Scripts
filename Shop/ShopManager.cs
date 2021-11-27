@@ -6,19 +6,18 @@ using UnityEngine.EventSystems;
 public class ShopManager : MonoBehaviour
 {
     public int[,] ShopItems=new int[3,4];
-    private int current_coins;
-    public int totalCoins;
-    public Text CoinsTxt;
+    [SerializeField] public int current_money;
+    public Text CoinsTxt; // 目前金錢
     public Text WarningTxt;
-    void Awake(){
+    void Awake(){ //將獲得的錢帶入別的Scene
         DontDestroyOnLoad(this.gameObject);
-    }
+    } 
     void Start()
     {
-        totalCoins=PlayerPrefs.GetInt("Money");
         //物件ID
         // CoinsTxt.text="Coins:"+coins.ToString();
-        CoinsTxt.text="Coins:"+playerData.instancePlayerInfo.current_money.ToString();
+        CoinsTxt.text="Coins:"+playerData.instancePlayerInfo.current_money.ToString(); //從playeData取得靜態變數current_money
+        PlayerPrefs.GetInt("Money");
         ShopItems[1,1]=1;
         ShopItems[1,2]=2;
         ShopItems[1,3]=3;
@@ -26,13 +25,6 @@ public class ShopManager : MonoBehaviour
         ShopItems[2,1]=299;
         ShopItems[2,2]=399;
         ShopItems[2,3]=599;
-    }
-
-    // Update is called once per frame
-    public void GetMoney(){
-        current_coins=800;
-        playerData.instancePlayerInfo.current_money=current_coins;
-        PlayerPrefs.SetInt("Money",totalCoins);
     }
     public void buy()
     {
@@ -43,5 +35,10 @@ public class ShopManager : MonoBehaviour
         }else{
             WarningTxt.text="錢不夠用!";
         }
+    }
+    public void Earn_Money(){
+        current_money=200;
+        playerData.instancePlayerInfo.current_money+=current_money;
+        PlayerPrefs.SetInt("Money",playerData.instancePlayerInfo.current_money);
     }
 }

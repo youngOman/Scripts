@@ -5,14 +5,12 @@ using UnityEngine;
 public class AllFish : MonoBehaviour
 {
     public GameObject[] Fishobjects;
-    public Transform SpawnPlace;
     private GameObject CurrentObjID;
     void Start(){
-        // int tempCurrentFishID=GetFish.instanceDataFish.numCurrentID; //釣完魚
-        CurrentObjID=Instantiate(Fishobjects[0],SpawnPlace);
+        CurrentObjID=Instantiate(Fishobjects[0]);
     }
     public void Spawnfish(int FishID) {
         Destroy(CurrentObjID);
-        CurrentObjID=Instantiate(Fishobjects[FishID],SpawnPlace);
+        CurrentObjID=Instantiate(Fishobjects[FishID]);
     }
 }

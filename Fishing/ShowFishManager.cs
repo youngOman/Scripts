@@ -7,9 +7,9 @@ public class ShowFishManager : MonoBehaviour
     public GameObject[] objFishes;
     // public Transform SpawnPlace;
     void Start(){
-        int TempID=GetFish.instanceDataFish.numCurrentID;
+        //得從startFishing獲得FishID後再傳至static變數再傳至TempID;
+        int TempID=StoreFishData.instanceDataFish.numCurrentID;
         Instantiate(objFishes[TempID]);
         objFishes[TempID].SetActive(true);
     }
-    
 }
