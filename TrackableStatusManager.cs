@@ -9,13 +9,13 @@ public class TrackableStatusManager : MonoBehaviour, ITrackableEventHandler
         LOST = 0,
         TRACK = 1
     }
-    public TurnStates Status { get { return this.status; } set { status = value; } }
+    public TurnStates Status { get { return this.status; } set { status = value; } } //判斷是Track還是Lost
     private TurnStates status;
     private TrackableBehaviour trackableBehaviour;
-    public GameObject Target;
+    public GameObject ImageTarget;
     void Start()
     {
-        trackableBehaviour = Target.GetComponent<TrackableBehaviour>();
+        trackableBehaviour = ImageTarget.GetComponent<TrackableBehaviour>();
         if (trackableBehaviour)
         {
             trackableBehaviour.RegisterTrackableEventHandler(this);

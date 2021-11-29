@@ -5,6 +5,7 @@ using UnityEngine;
 public class AllFish : MonoBehaviour
 {
     public GameObject[] Fishobjects;
+    public GameObject[] objRods; 
     // public GameObject CurrentObjID;
     // void Start(){
     //     CurrentObjID=Instantiate(Fishobjects[0]);

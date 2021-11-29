@@ -41,4 +41,18 @@ public class ShopManager : MonoBehaviour
         playerData.instancePlayerInfo.current_money+=current_money;
         PlayerPrefs.SetInt("Money",playerData.instancePlayerInfo.current_money); //每當蒐集
     }
+    public void ChooseRod(){
+        GameObject ButtonRef=GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
+        if(ShopItems[1,ButtonRef.GetComponent<ButtonInfo>().ItemID]==1){
+            playerData.instancePlayerInfo.RodID=ShopItems[1,ButtonRef.GetComponent<ButtonInfo>().ItemID];
+        }
+        if(ShopItems[1,ButtonRef.GetComponent<ButtonInfo>().ItemID]==2){
+            playerData.instancePlayerInfo.RodID=ShopItems[1,ButtonRef.GetComponent<ButtonInfo>().ItemID];
+        }
+        if(ShopItems[1,ButtonRef.GetComponent<ButtonInfo>().ItemID]==3){
+            playerData.instancePlayerInfo.RodID=ShopItems[1,ButtonRef.GetComponent<ButtonInfo>().ItemID];
+        }
+        
+        // Debug.Log(playerData.instancePlayerInfo.RodID); //選釣竿出現
+    }
 }

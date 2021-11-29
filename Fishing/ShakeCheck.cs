@@ -1,26 +1,30 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Events;
-using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class ShakeCheck : MonoBehaviour
 {
+    [Header("Manager")]
     [SerializeField] AllFish AllFishManager;
     [HideInInspector] public float strength=5.0f;
-    [Header("Others")]
+    [Header("Animator")]
     public Animator FishingRodControl;
     // public Text view_text;
-    public GameObject ImageTarget;  
+    [Header("ImageTarget")]
+    public GameObject ImageTarget;
     private int nowcurrent_FishID;
     private int totalFish; // 目前總魚數
     private int ObjCount=0;
     private UnityEvent events; //檢測到搖晃後執行(套入延時之後)
     void Start()
     {
+        // Debug.Log(playerData.instancePlayerInfo.RodID);
+        int TempID=playerData.instancePlayerInfo.RodID; //從商店選的釣竿
+        AllFishManager.objRods[TempID-1].SetActive(true); //Debug用
         totalFish=AllFishManager.Fishobjects.Length; //從AllFish取得魚的數量
         Debug.Log("目前有:"+totalFish+"隻魚");
-        FishingRodControl=GetComponent<Animator>(); 
+        FishingRodControl=GetComponent<Animator>();
     }
     void Update()
     {
